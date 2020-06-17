@@ -1,0 +1,14 @@
+$.ajax({
+    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Your List Name')/items",
+    type: "GET",
+    headers: {
+        "accept": "application/json;odata=verbose",
+        "content-Type": "application/json;odata=verbose"
+    },
+    success: function(data) {
+        console.log(data.d.results);
+    },
+    error: function(error) {
+        alert(JSON.stringify(error));
+    }
+});
