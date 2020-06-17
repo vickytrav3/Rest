@@ -1,0 +1,17 @@
+$.ajax({
+    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Your List Name')/items(Your record ID)",
+    type: "POST",
+    async: false,
+    headers: {
+        "Accept": "application/json;odata=verbose",
+        "X-Http-Method": "DELETE",
+        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+        "If-Match": "*"
+    },
+    success: function(data) {
+        alert('deleted');
+    },
+    error: function(data) {
+        alert('Failed to delete');
+    }
+});
