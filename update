@@ -1,0 +1,19 @@
+$.ajax({
+    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Your List Name')/items(Your record ID)",
+    type: "POST",
+    headers: {
+        "accept": "application/json;odata=verbose",
+        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+        "content-Type": "application/json;odata=verbose",
+        "IF-MATCH": "*",
+        "X-HTTP-Method": "MERGE"
+    },
+    data: "{__metadata:{'type':'SP.Data.YourlistnameListItem'},Title:"Ur new input"}",/*where Title is column name and add your desired new data*/
+    success: function(data) {
+        console.log(data.d.results);
+
+    },
+    error: function(error) {
+        alert(JSON.stringify(error));
+    }
+});
